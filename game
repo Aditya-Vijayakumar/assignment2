@@ -1,0 +1,52 @@
+package assignment2;
+
+import java.util.Random;
+
+import javafx.scene.control.CheckBox;
+
+public class Game implements java.io.Serializable
+{
+	//Written by Aditya Vijayakumar
+		//Student ID: s3632205
+
+
+		public String gameId;
+		public Official referee;
+		public Athlete[] participants=new Athlete[8];
+		public Athlete[] listOfAthletes=null;
+		public CheckBox[] checkedList=null;
+		public String userPrediction=null;
+		public Athlete[] winners=null;
+		public static int count=00;
+		public Game(){
+			count++;
+			//System.out.println(count);
+		}
+		public Game chooseAthletes(Game game,String choose){
+			
+			this.listOfAthletes=AthleteDetails.chooseAthletes(choose);
+			this.checkedList=new CheckBox[this.listOfAthletes.length];
+			
+			return game;
+		}
+		public Game createGameId(Game game,String option)
+		{
+			
+		    if(option.equals("SW")){
+				game.gameId="S"+count;
+				
+			}
+			else if(option.equals("CY"))
+			{
+				game.gameId="C"+count;
+				
+			}
+			else {
+				game.gameId="R"+count;
+				
+			}
+		    return game;
+		}
+	}
+
+
